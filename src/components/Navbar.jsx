@@ -3,12 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 const links = [
   ['Our Work', '/#work'],
   ['Pricing', '/pricing'],
-  ['How It Works', '/#process'],
+  ['How It Works', '/how-it-works'],
   ['Contact', '/#contact'],
 ];
 
 function NavigationLinks({ onNavigate }) {
-  return links.map(([label, to]) => to === '/pricing'
+  return links.map(([label, to]) => ['/pricing', '/how-it-works'].includes(to)
     ? <NavLink key={to} to={to} end className={({ isActive }) => isActive ? 'navbar-link-active' : undefined} onClick={onNavigate}>{label}</NavLink>
     : <Link key={to} to={to} onClick={onNavigate}>{label}</Link>);
 }
