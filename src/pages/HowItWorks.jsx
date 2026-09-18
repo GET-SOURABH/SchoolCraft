@@ -4,156 +4,96 @@ const processSteps = [
   {
     number: '01',
     title: 'Share your school details',
-    description: 'Send us your logo, photographs, school information, facilities, admissions details and contact information.',
+    description: 'Send us your logo, photographs, school information, admissions details and contact information.',
   },
   {
     number: '02',
     title: 'We design & build',
-    description: 'We organise your content, design the website and develop it around your school’s requirements.',
+    description: 'We organise your content and develop the complete website around your school’s needs.',
   },
   {
     number: '03',
     title: 'You review it',
-    description: 'Your school reviews the website and shares the agreed changes before launch.',
+    description: 'Your school reviews the website and requests the agreed revisions before launch.',
   },
   {
     number: '04',
     title: 'Your website goes live',
-    description: 'We complete the final setup, connect the domain and launch the website for parents to visit.',
+    description: 'We complete the setup, connect the domain and make the approved website live.',
   },
 ];
 
 const schoolProvides = [
-  'School logo',
-  'School name and basic information',
-  'About the school',
-  'Principal / Director message, if included in the chosen package',
-  'Academics / classes offered',
-  'Admissions information',
-  'Facilities',
-  'Contact details',
+  'Logo and school identity',
+  'Core school information',
   'School photographs',
-  'Social media links, if applicable',
-  'Fee information, if included in the chosen package',
-  'Faculty / achievements / events content, where included',
+  'Admissions details',
+  'Academics and facilities',
+  'Relevant package content',
 ];
 
 const schoolCraftHandles = [
   'Website structure',
-  'Visual design',
-  'Responsive development',
-  'Page layout',
-  'Content placement',
-  'Contact / enquiry setup where included',
-  'Google Maps integration',
-  'Social links',
+  'Custom design and development',
+  'Responsive layout',
+  'Maps and contact integration',
   'Basic SEO setup',
-  'Domain connection assistance',
-  'Hosting setup assistance',
-  'Final launch',
+  'Domain, hosting and launch assistance',
 ];
-
-const reviewChecks = [
-  'Check school information',
-  'Review images and page content',
-  'Request agreed corrections / revisions',
-];
-
-function ProcessTimeline() {
-  return (
-    <ol className="process-timeline">
-      {processSteps.map(step => (
-        <li className="process-step" key={step.number}>
-          <span className="process-step-number" aria-hidden="true">{step.number}</span>
-          <div className="process-step-copy">
-            <h2>{step.title}</h2>
-            <p>{step.description}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
-  );
-}
 
 function HowItWorks() {
   return (
-    <main id="main-content" className="how-it-works-page">
-      <section className="process-hero page-shell" aria-labelledby="process-heading">
-        <div className="container process-hero-layout">
-          <div>
-            <p className="eyebrow">HOW IT WORKS</p>
-            <h1 id="process-heading">From your school details<br />to a <em>live website.</em></h1>
-          </div>
-          <div className="process-hero-aside">
-            <p>You share the information about your school. We handle the design, development and technical setup.</p>
-            <span className="process-annotation">Simple from start to finish <span aria-hidden="true">↘</span></span>
-          </div>
+    <main id="main-content">
+      <section className="page-hero page-shell" aria-labelledby="process-heading">
+        <div className="container page-hero-inner">
+          <p className="eyebrow">HOW IT WORKS</p>
+          <h1 id="process-heading">From your school information<br />to a live website in <em>four steps.</em></h1>
+          <p>You share the information about your school. We handle the structure, design, development and technical setup.</p>
         </div>
       </section>
 
-      <section className="process-journey page-shell" aria-label="The SchoolCraft website process">
-        <div className="container">
-          <ProcessTimeline />
-        </div>
-      </section>
-
-      <section className="process-provides page-shell" aria-labelledby="provides-heading">
-        <div className="container process-section-layout">
-          <div className="process-section-heading">
-            <p className="eyebrow">FROM YOUR SCHOOL</p>
-            <h2 id="provides-heading">What do we need<br />from <em>your school?</em></h2>
+      <section className="process-section page-shell" aria-labelledby="steps-heading">
+        <div className="container process-layout">
+          <div className="process-section-intro">
+            <p className="eyebrow">THE PROCESS</p>
+            <h2 id="steps-heading">Simple, clear and easy to follow.</h2>
           </div>
-          <div>
-            <ul className="process-checklist process-checklist--light">
-              {schoolProvides.map(item => <li key={item}><span aria-hidden="true">✓</span><span>{item}</span></li>)}
-            </ul>
-            <p className="process-assurance">Don’t have everything organised? That’s fine — send us what you have and we’ll help structure it for the website.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="process-handles page-shell" aria-labelledby="handles-heading">
-        <div className="container process-handles-inner">
-          <div className="process-handles-intro">
-            <p className="eyebrow">FROM SCHOOLCRAFT</p>
-            <h2 id="handles-heading">What we <em>handle.</em></h2>
-            <p>The school provides its information.<br />SchoolCraft handles the web work.</p>
-          </div>
-          <ul className="process-checklist process-checklist--dark">
-            {schoolCraftHandles.map(item => <li key={item}><span aria-hidden="true">✓</span><span>{item}</span></li>)}
-          </ul>
-        </div>
-      </section>
-
-      <section className="process-review page-shell" aria-labelledby="review-heading">
-        <div className="container process-review-layout">
-          <div>
-            <p className="eyebrow">BEFORE LAUNCH</p>
-            <h2 id="review-heading">You see it before<br />it goes <em>live.</em></h2>
-            <p className="process-review-copy">We share the completed website for review before launch. Your school can check the content, pages and presentation and request the agreed revisions.</p>
-          </div>
-          <ol className="process-review-list">
-            {reviewChecks.map((item, index) => (
-              <li key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></li>
+          <ol className="process-list">
+            {processSteps.map(step => (
+              <li key={step.number}>
+                <span className="process-number" aria-hidden="true">{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="process-launch page-shell" aria-labelledby="launch-heading">
-        <div className="container process-launch-inner">
-          <div>
-            <p className="eyebrow">FINAL STEP</p>
-            <h2 id="launch-heading">Then we put your<br />school <em>online.</em></h2>
+      <section className="process-support page-shell" aria-labelledby="support-heading">
+        <div className="container process-support-panel">
+          <div className="process-support-heading">
+            <p className="eyebrow">A SHARED EFFORT</p>
+            <h2 id="support-heading">Your content.<br />Our web expertise.</h2>
           </div>
-          <div className="process-launch-copy">
-            <p>Once the website is approved, we complete the final setup, connect the domain and make the website live.</p>
-            <p className="process-launch-line" aria-label="Approved, then domain connected, then live">
-              <span>Approved</span><span aria-hidden="true">→</span><span>Domain connected</span><span aria-hidden="true">→</span><span>Live</span>
-            </p>
+          <div className="process-support-grid">
+            <section aria-labelledby="provide-heading">
+              <h3 id="provide-heading">You provide</h3>
+              <ul>{schoolProvides.map(item => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul>
+            </section>
+            <section aria-labelledby="handle-heading">
+              <h3 id="handle-heading">We handle</h3>
+              <ul>{schoolCraftHandles.map(item => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul>
+            </section>
+          </div>
+          <div className="process-notes">
+            <p>Digital presence should make a school easier to discover, understand and connect with.</p>
+            <blockquote>
+              “Learning gives creativity, creativity leads to thinking, thinking provides knowledge, knowledge makes you great.”
+              <cite>Dr. A. P. J. Abdul Kalam</cite>
+            </blockquote>
           </div>
         </div>
-        <p className="container process-domain-note">If your school does not already have a domain or hosting, we can help you choose and set them up. Any applicable third-party charges are separate.</p>
       </section>
 
       <PageCTA

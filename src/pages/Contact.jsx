@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import PageCTA from '../components/PageCTA';
+import { Link } from 'react-router-dom';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkjnpavb';
 
@@ -17,21 +17,13 @@ const nextSteps = [
   {
     number: '02',
     title: 'We discuss the scope',
-    description: 'We confirm the right package or discuss anything custom your school needs.',
+    description: 'We confirm the right package or discuss any custom requirements.',
   },
   {
     number: '03',
     title: 'We begin with your content',
-    description: 'Once the project is agreed, we collect the school information needed to start.',
+    description: 'Once agreed, we collect the school information needed to start.',
   },
-];
-
-const helpfulDetails = [
-  'Whether your school already has a website',
-  'Which package you are considering',
-  'Approximate number of pages / sections you need',
-  'Any specific features you need',
-  'Whether you already own a domain',
 ];
 
 function Contact() {
@@ -91,22 +83,17 @@ function Contact() {
   const statusMessage = submissionMessages[submissionStatus] || '';
 
   return (
-    <main id="main-content" className="contact-page">
-      <section className="contact-hero page-shell" aria-labelledby="contact-heading">
-        <div className="container contact-hero-layout">
-          <div>
-            <p className="eyebrow">CONTACT</p>
-            <h1 id="contact-heading">Let’s put your school<br /><em>online.</em></h1>
-          </div>
-          <div className="contact-hero-aside">
-            <p>Tell us about your school and what you need. We’ll use the details to understand the project and discuss the right next step.</p>
-            <span className="contact-annotation">Start with the basics. <span aria-hidden="true">↘</span></span>
-          </div>
+    <main id="main-content">
+      <section className="page-hero page-shell contact-hero" aria-labelledby="contact-heading">
+        <div className="container page-hero-inner">
+          <p className="eyebrow">CONTACT</p>
+          <h1 id="contact-heading">Let’s build your school’s<br /><em>online presence.</em></h1>
+          <p>Have questions or ready to get started? Tell us about your school.</p>
         </div>
       </section>
 
       <section className="contact-content page-shell" aria-label="SchoolCraft enquiry">
-        <div className="container contact-content-grid">
+        <div className="container contact-layout">
           <form
             className="contact-form"
             onSubmit={handleSubmit}
@@ -122,9 +109,8 @@ function Contact() {
             </div>
 
             <div className="contact-form-heading">
-              <p className="eyebrow">YOUR SCHOOL</p>
-              <h2>Tell us what you need.</h2>
-              <p>A few clear details are enough to begin.</p>
+              <p className="eyebrow">SEND US AN ENQUIRY</p>
+              <h2>Tell us what your school needs.</h2>
             </div>
 
             <div className="contact-form-grid">
@@ -168,7 +154,7 @@ function Contact() {
                 <textarea
                   id="contact-requirements"
                   name="message"
-                  rows="7"
+                  rows="6"
                   placeholder="Tell us a little about your school, whether you already have a website, and anything specific you’d like included."
                   required
                 />
@@ -178,7 +164,7 @@ function Contact() {
             <div className="contact-form-footer">
               <p id="contact-privacy-note">We’ll only use these details to respond to your enquiry.</p>
               <button className="button button-primary contact-submit" type="submit" disabled={submissionStatus === 'submitting'}>
-                {submissionStatus === 'submitting' ? 'Sending...' : <>Send Enquiry <span aria-hidden="true">↗</span></>}
+                {submissionStatus === 'submitting' ? 'Sending...' : <>Send Enquiry <span aria-hidden="true">→</span></>}
               </button>
             </div>
             <p
@@ -191,42 +177,25 @@ function Contact() {
             </p>
           </form>
 
-          <section className="contact-next" aria-labelledby="contact-next-heading">
-            <p className="eyebrow">THE NEXT STEP</p>
-            <h2 id="contact-next-heading">What happens next?</h2>
+          <aside className="contact-side" aria-labelledby="contact-next-heading">
+            <p className="eyebrow">WHAT HAPPENS NEXT?</p>
+            <h2 id="contact-next-heading">A clear next step.</h2>
             <ol className="contact-next-list">
               {nextSteps.map(step => (
                 <li key={step.number}>
                   <span aria-hidden="true">{step.number}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                  </div>
+                  <div><h3>{step.title}</h3><p>{step.description}</p></div>
                 </li>
               ))}
             </ol>
-          </section>
-
-          <aside className="contact-helpful" aria-labelledby="contact-helpful-heading">
-            <h2 id="contact-helpful-heading">Helpful to mention</h2>
-            <ul>
-              {helpfulDetails.map(item => <li key={item}>{item}</li>)}
-            </ul>
+            <div className="contact-side-links">
+              <h3>Not sure which package you need?</h3>
+              <Link to="/pricing">View Pricing <span aria-hidden="true">→</span></Link>
+              <Link to="/how-it-works">See how the process works <span aria-hidden="true">→</span></Link>
+            </div>
           </aside>
-
         </div>
       </section>
-
-      <PageCTA
-        headingId="contact-shortcuts-heading"
-        title="Not sure which package you need?"
-        description="Compare the Essential and Complete website options before enquiring."
-        primaryLabel="View Pricing"
-        primaryHref="/pricing"
-        secondaryLabel="See how the process works"
-        secondaryHref="/how-it-works"
-      />
-
     </main>
   );
 }

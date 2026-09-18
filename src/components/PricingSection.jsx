@@ -29,9 +29,7 @@ const completeExtras = [
 function FeatureList({ features }) {
   return (
     <ul className="pricing-feature-list">
-      {features.map(feature => (
-        <li key={feature}><span aria-hidden="true">✓</span><span>{feature}</span></li>
-      ))}
+      {features.map(feature => <li key={feature}><span aria-hidden="true">✓</span><span>{feature}</span></li>)}
     </ul>
   );
 }
@@ -41,70 +39,56 @@ function PricingSection() {
     <>
       <section id="pricing" className="pricing-section page-shell" aria-labelledby="pricing-heading">
         <div className="container">
-        <div className="pricing-intro">
-          <div>
+          <div className="pricing-intro">
             <p className="eyebrow">PRICING</p>
-            <h2 id="pricing-heading">Simple pricing.<br /><em>Choose what your school needs.</em></h2>
+            <h1 id="pricing-heading">Simple pricing.<br /><em>Choose what your school needs.</em></h1>
+            <p>Two clear, one-time development options for a professional school website.</p>
           </div>
-          <p className="pricing-intro-copy">Two straightforward options for schools that want a professional online presence.</p>
-        </div>
 
-        <div className="pricing-packages">
-          <article className="pricing-package pricing-package--essential" aria-labelledby="essential-package-heading">
-            <div className="pricing-package-offer">
-              <p className="pricing-package-index">01 <span>ESSENTIAL</span></p>
+          <div className="pricing-cards">
+            <article className="pricing-card pricing-card--essential" aria-labelledby="essential-package-heading">
+              <p className="pricing-label">ESSENTIAL</p>
               <p className="pricing-amount">₹20,000</p>
-              <h3 id="essential-package-heading">Essential School Website</h3>
-              <p className="pricing-payment-note">One-time website development</p>
-              <p className="pricing-package-description">For schools that need a clean, professional website with the essential information parents look for.</p>
-              <div className="pricing-package-footer">
-                <div className="pricing-scope-copy">
-                  <p className="pricing-scope">Up to 7 core pages</p>
-                  <p className="pricing-scope-note">Some features may be combined as sections within a page.</p>
-                </div>
-                <Link to="/contact" className="button pricing-package-cta">Choose Essential <span aria-hidden="true">↗</span></Link>
-              </div>
-            </div>
-            <div className="pricing-inclusions">
-              <h4>Essential pages and setup</h4>
+              <h2 id="essential-package-heading">Essential School Website</h2>
+              <p className="pricing-scope">Up to 7 core pages</p>
+              <p className="pricing-card-description">A focused website with the essential information parents look for.</p>
               <FeatureList features={essentialFeatures} />
-            </div>
-          </article>
+              <p className="pricing-scope-note">Some features may be combined as sections within a page.</p>
+              <Link to="/contact" className="button button-secondary pricing-card-cta">Choose Essential <span aria-hidden="true">→</span></Link>
+            </article>
 
-          <article className="pricing-package pricing-package--complete" aria-labelledby="complete-package-heading">
-            <div className="pricing-package-offer">
-              <p className="pricing-package-index">02 <span>COMPLETE</span></p>
+            <article className="pricing-card pricing-card--complete" aria-labelledby="complete-package-heading">
+              <p className="pricing-label">COMPLETE</p>
               <p className="pricing-amount">₹30,000</p>
-              <h3 id="complete-package-heading">Complete School Website</h3>
-              <p className="pricing-payment-note">One-time website development</p>
-              <p className="pricing-package-description">For schools that want a more detailed website with additional information, updates and enquiry features.</p>
-              <div className="pricing-package-footer">
-                <div className="pricing-scope-copy">
-                  <p className="pricing-scope">Up to 12–15 pages / sections</p>
-                  <p className="pricing-scope-note">Final page structure depends on your school’s content.</p>
-                </div>
-                <Link to="/contact" className="button pricing-package-cta">Choose Complete <span aria-hidden="true">↗</span></Link>
-              </div>
-            </div>
-            <div className="pricing-inclusions">
-              <p className="pricing-inclusions-kicker">Everything in Essential, plus</p>
+              <h2 id="complete-package-heading">Complete School Website</h2>
+              <p className="pricing-scope">Up to 12–15 pages / sections</p>
+              <p className="pricing-card-description">Everything in Essential, plus more room for your school’s people, updates and achievements.</p>
               <FeatureList features={completeExtras} />
-            </div>
-          </article>
-        </div>
-
-        <p className="pricing-hosting-note">Domain and hosting charges, where applicable, are separate. We’ll help you choose and set them up.</p>
-
-        <aside className="pricing-custom" aria-labelledby="pricing-custom-heading">
-          <div>
-            <h3 id="pricing-custom-heading">Need something custom?</h3>
-            <p>If your school needs additional features or a different scope, we can discuss a custom quote.</p>
+              <p className="pricing-scope-note">Final page structure depends on your school’s content.</p>
+              <Link to="/contact" className="button pricing-card-cta">Choose Complete <span aria-hidden="true">→</span></Link>
+            </article>
           </div>
-          <Link to="/contact" className="pricing-custom-link">Talk to Us <span aria-hidden="true">↗</span></Link>
-        </aside>
 
+          <div className="pricing-info-grid">
+            <article>
+              <span aria-hidden="true">01</span>
+              <h2>No hidden charges</h2>
+              <p>Straightforward one-time development pricing.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">02</span>
+              <h2>Domain &amp; Hosting</h2>
+              <p>Domain and hosting charges, where applicable, are separate. We’ll help you choose and set them up.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">03</span>
+              <h2>Need something custom?</h2>
+              <p>If your school needs additional features or a different scope, we can discuss a custom quote.</p>
+            </article>
+          </div>
         </div>
       </section>
+
       <PageCTA
         headingId="pricing-cta-heading"
         title="Ready to build your school website?"
