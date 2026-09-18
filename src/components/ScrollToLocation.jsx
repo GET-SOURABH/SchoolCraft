@@ -25,7 +25,7 @@ function ScrollToLocation() {
           block: 'start',
         });
       } else {
-        // Contact/process are intentionally not built yet. Land at the page top.
+        // If an old or unknown anchor is used, land at the page top.
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
     });

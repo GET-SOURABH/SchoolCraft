@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import PageCTA from '../components/PageCTA';
 
 const processSteps = [
   {
@@ -156,18 +156,15 @@ function HowItWorks() {
         <p className="container process-domain-note">If your school does not already have a domain or hosting, we can help you choose and set them up. Any applicable third-party charges are separate.</p>
       </section>
 
-      <section className="process-final-cta page-shell" aria-labelledby="process-cta-heading">
-        <div className="container process-final-cta-inner">
-          <div>
-            <h2 id="process-cta-heading">Ready to get your school online?</h2>
-            <p>Choose a package or tell us what your school needs.</p>
-          </div>
-          <div className="process-final-actions">
-            <Link to="/pricing" className="button button-secondary">View Pricing</Link>
-            <Link to="/#contact" className="button button-primary">Start a Project <span aria-hidden="true">↗</span></Link>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        headingId="process-cta-heading"
+        title="Ready to get your school online?"
+        description="Choose a package or tell us what your school needs."
+        primaryLabel="Start a Project"
+        primaryHref="/contact"
+        secondaryLabel="View Pricing"
+        secondaryHref="/pricing"
+      />
     </main>
   );
 }

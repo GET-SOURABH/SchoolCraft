@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PageCTA from './PageCTA';
 
 const essentialFeatures = [
   'Professional Home Page',
@@ -37,8 +38,9 @@ function FeatureList({ features }) {
 
 function PricingSection() {
   return (
-    <section id="pricing" className="pricing-section page-shell" aria-labelledby="pricing-heading">
-      <div className="container">
+    <>
+      <section id="pricing" className="pricing-section page-shell" aria-labelledby="pricing-heading">
+        <div className="container">
         <div className="pricing-intro">
           <div>
             <p className="eyebrow">PRICING</p>
@@ -60,7 +62,7 @@ function PricingSection() {
                   <p className="pricing-scope">Up to 7 core pages</p>
                   <p className="pricing-scope-note">Some features may be combined as sections within a page.</p>
                 </div>
-                <Link to="/#contact" className="button pricing-package-cta">Choose Essential <span aria-hidden="true">↗</span></Link>
+                <Link to="/contact" className="button pricing-package-cta">Choose Essential <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
             <div className="pricing-inclusions">
@@ -81,7 +83,7 @@ function PricingSection() {
                   <p className="pricing-scope">Up to 12–15 pages / sections</p>
                   <p className="pricing-scope-note">Final page structure depends on your school’s content.</p>
                 </div>
-                <Link to="/#contact" className="button pricing-package-cta">Choose Complete <span aria-hidden="true">↗</span></Link>
+                <Link to="/contact" className="button pricing-package-cta">Choose Complete <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
             <div className="pricing-inclusions">
@@ -98,18 +100,21 @@ function PricingSection() {
             <h3 id="pricing-custom-heading">Need something custom?</h3>
             <p>If your school needs additional features or a different scope, we can discuss a custom quote.</p>
           </div>
-          <Link to="/#contact" className="pricing-custom-link">Talk to Us <span aria-hidden="true">↗</span></Link>
+          <Link to="/contact" className="pricing-custom-link">Talk to Us <span aria-hidden="true">↗</span></Link>
         </aside>
 
-        <div className="pricing-next-step">
-          <h3>Ready to build your school website?</h3>
-          <div className="pricing-actions">
-            <Link to="/#contact" className="button button-primary">Start a Project <span aria-hidden="true">↗</span></Link>
-            <Link to="/how-it-works" className="button button-secondary">How It Works</Link>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <PageCTA
+        headingId="pricing-cta-heading"
+        title="Ready to build your school website?"
+        description="Choose the option that fits your school, or tell us what you need."
+        primaryLabel="Start a Project"
+        primaryHref="/contact"
+        secondaryLabel="How It Works"
+        secondaryHref="/how-it-works"
+      />
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PageCTA from '../components/PageCTA';
 import ProjectShowcase from '../components/ProjectShowcase';
 import { projects } from '../data/projects';
 
@@ -76,12 +77,15 @@ function Home() {
             {projects.map(project => <ProjectShowcase key={project.number} {...project} />)}
           </div>
         </section>
-        <section className="portfolio-transition page-shell" aria-labelledby="next-school-heading">
-          <div className="container portfolio-transition-inner">
-            <div><h2 id="next-school-heading">Your school could be <em>next.</em></h2><p>Let’s build a website that gives parents a better first impression of your school.</p></div>
-            <div className="portfolio-transition-actions"><Link to="/pricing" className="button button-secondary">See Pricing</Link><Link to="/#contact" className="button button-primary">Start a Project <span aria-hidden="true">↗</span></Link></div>
-          </div>
-        </section>
+        <PageCTA
+          headingId="next-school-heading"
+          title={<>Your school could be <em>next.</em></>}
+          description="Let’s build a website that gives parents a better first impression of your school."
+          primaryLabel="Start a Project"
+          primaryHref="/contact"
+          secondaryLabel="See Pricing"
+          secondaryHref="/pricing"
+        />
       </main>
   );
 }
