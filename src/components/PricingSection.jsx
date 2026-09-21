@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PageCTA from './PageCTA';
+import Reveal from './Reveal';
 
 const essentialFeatures = [
   'Professional Home Page',
@@ -40,52 +41,56 @@ function PricingSection() {
       <section id="pricing" className="pricing-section page-shell" aria-labelledby="pricing-heading">
         <div className="container">
           <div className="pricing-intro">
-            <p className="eyebrow">PRICING</p>
-            <h1 id="pricing-heading">Simple pricing.<br /><em>Choose what your school needs.</em></h1>
-            <p className="pricing-description">Two clear, one-time development options for a professional school website.</p>
-            <p className="identity-microcopy pricing-identity">Seedhi pricing. No confusion.</p>
+            <Reveal as="p" className="eyebrow">PRICING</Reveal>
+            <Reveal as="h1" id="pricing-heading" delay={70}>Simple pricing.<br /><em>Choose what your school needs.</em></Reveal>
+            <Reveal as="p" className="pricing-description" delay={140}>Two clear, one-time development options for a professional school website.</Reveal>
+            <Reveal as="p" className="identity-microcopy pricing-identity" delay={190}>Seedhi pricing. No confusion.</Reveal>
           </div>
 
           <div className="pricing-cards">
-            <article className="pricing-card pricing-card--essential" aria-labelledby="essential-package-heading">
-              <p className="pricing-label">ESSENTIAL</p>
-              <p className="pricing-amount">₹20,000</p>
-              <h2 id="essential-package-heading">Essential School Website</h2>
-              <p className="pricing-scope">Up to 7 core pages</p>
-              <p className="pricing-card-description">A focused website with the essential information parents look for.</p>
-              <FeatureList features={essentialFeatures} />
-              <p className="pricing-scope-note">Some features may be combined as sections within a page.</p>
-              <Link to="/contact" className="button button-secondary pricing-card-cta">Choose Essential <span aria-hidden="true">→</span></Link>
-            </article>
+            <Reveal className="pricing-card-reveal">
+              <article className="pricing-card pricing-card--essential" aria-labelledby="essential-package-heading">
+                <p className="pricing-label">ESSENTIAL</p>
+                <p className="pricing-amount">₹20,000</p>
+                <h2 id="essential-package-heading">Essential School Website</h2>
+                <p className="pricing-scope">Up to 7 core pages</p>
+                <p className="pricing-card-description">A focused website with the essential information parents look for.</p>
+                <FeatureList features={essentialFeatures} />
+                <p className="pricing-scope-note">Some features may be combined as sections within a page.</p>
+                <Link to="/contact" className="button button-secondary pricing-card-cta">Choose Essential <span aria-hidden="true">→</span></Link>
+              </article>
+            </Reveal>
 
-            <article className="pricing-card pricing-card--complete" aria-labelledby="complete-package-heading">
-              <p className="pricing-label">COMPLETE</p>
-              <p className="pricing-amount">₹30,000</p>
-              <h2 id="complete-package-heading">Complete School Website</h2>
-              <p className="pricing-scope">Up to 12–15 pages / sections</p>
-              <p className="pricing-card-description">Everything in Essential, plus more room for your school’s people, updates and achievements.</p>
-              <FeatureList features={completeExtras} />
-              <p className="pricing-scope-note">Final page structure depends on your school’s content.</p>
-              <Link to="/contact" className="button pricing-card-cta">Choose Complete <span aria-hidden="true">→</span></Link>
-            </article>
+            <Reveal className="pricing-card-reveal" delay={90}>
+              <article className="pricing-card pricing-card--complete" aria-labelledby="complete-package-heading">
+                <p className="pricing-label">COMPLETE</p>
+                <p className="pricing-amount">₹30,000</p>
+                <h2 id="complete-package-heading">Complete School Website</h2>
+                <p className="pricing-scope">Up to 12–15 pages / sections</p>
+                <p className="pricing-card-description">Everything in Essential, plus more room for your school’s people, updates and achievements.</p>
+                <FeatureList features={completeExtras} />
+                <p className="pricing-scope-note">Final page structure depends on your school’s content.</p>
+                <Link to="/contact" className="button pricing-card-cta">Choose Complete <span aria-hidden="true">→</span></Link>
+              </article>
+            </Reveal>
           </div>
 
           <div className="pricing-info-grid">
-            <article>
+            <Reveal as="article">
               <span aria-hidden="true">01</span>
               <h2>No hidden charges</h2>
               <p>Straightforward one-time development pricing.</p>
-            </article>
-            <article>
+            </Reveal>
+            <Reveal as="article" delay={70}>
               <span aria-hidden="true">02</span>
               <h2>Domain &amp; Hosting</h2>
               <p>Domain and hosting charges, where applicable, are separate. We’ll help you choose and set them up.</p>
-            </article>
-            <article>
+            </Reveal>
+            <Reveal as="article" delay={140}>
               <span aria-hidden="true">03</span>
               <h2>Need something custom?</h2>
               <p>If your school needs additional features or a different scope, we can discuss a custom quote.</p>
-            </article>
+            </Reveal>
           </div>
         </div>
       </section>

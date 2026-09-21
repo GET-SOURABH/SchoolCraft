@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkjnpavb';
 
@@ -86,16 +87,17 @@ function Contact() {
     <main id="main-content">
       <section className="page-hero page-shell contact-hero" aria-labelledby="contact-heading">
         <div className="container page-hero-inner">
-          <p className="eyebrow">CONTACT</p>
-          <h1 id="contact-heading">Let’s build your school’s<br /><em>online presence.</em></h1>
-          <p>Have questions or ready to get started? Tell us about your school.</p>
-          <p className="identity-microcopy page-hero-identity">Bas school ke baare mein batayein — baaki process simple hai.</p>
+          <Reveal as="p" className="eyebrow">CONTACT</Reveal>
+          <Reveal as="h1" id="contact-heading" delay={70}>Let’s build your school’s<br /><em>online presence.</em></Reveal>
+          <Reveal as="p" delay={140}>Have questions or ready to get started? Tell us about your school.</Reveal>
+          <Reveal as="p" className="identity-microcopy page-hero-identity" delay={190}>Bas school ke baare mein batayein — baaki process simple hai.</Reveal>
         </div>
       </section>
 
       <section className="contact-content page-shell" aria-label="SchoolCraft enquiry">
         <div className="container contact-layout">
-          <form
+          <Reveal
+            as="form"
             className="contact-form"
             onSubmit={handleSubmit}
             aria-busy={submissionStatus === 'submitting'}
@@ -176,24 +178,24 @@ function Contact() {
             >
               {statusMessage}
             </p>
-          </form>
+          </Reveal>
 
           <aside className="contact-side" aria-labelledby="contact-next-heading">
             <p className="eyebrow">WHAT HAPPENS NEXT?</p>
             <h2 id="contact-next-heading">A clear next step.</h2>
             <ol className="contact-next-list">
-              {nextSteps.map(step => (
-                <li key={step.number}>
+              {nextSteps.map((step, index) => (
+                <Reveal as="li" key={step.number} delay={index * 70}>
                   <span aria-hidden="true">{step.number}</span>
                   <div><h3>{step.title}</h3><p>{step.description}</p></div>
-                </li>
+                </Reveal>
               ))}
             </ol>
-            <div className="contact-side-links">
+            <Reveal className="contact-side-links" delay={100}>
               <h3>Not sure which package you need?</h3>
               <Link to="/pricing">View Pricing <span aria-hidden="true">→</span></Link>
               <Link to="/how-it-works">See how the process works <span aria-hidden="true">→</span></Link>
-            </div>
+            </Reveal>
           </aside>
         </div>
       </section>

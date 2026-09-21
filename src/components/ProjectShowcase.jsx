@@ -32,7 +32,7 @@ function ProjectShowcase({ number, title, location, description, image, imageAlt
   } catch { /* Awaiting a live URL. */ }
 
   return (
-    <article className={`project-card project-card--${variant}`} aria-labelledby={`project-title-${number}`}>
+    <article className={`project-card project-card--${variant}${liveUrl ? ' project-card--live' : ''}`} aria-labelledby={`project-title-${number}`}>
       <figure className="project-card-visual">
         <div className="project-browser">
           <div className="project-browser-bar" aria-hidden="true">

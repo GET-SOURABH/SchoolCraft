@@ -35,7 +35,7 @@ const Navbar = () => (
       <Link to="/contact" className="navbar-cta">Get Started <span aria-hidden="true">↗</span></Link>
       <details className="mobile-menu">
         <summary aria-label="Open navigation menu"><span>Menu</span><span className="menu-lines" aria-hidden="true" /></summary>
-        <div className="mobile-menu-links"><NavigationLinks onNavigate={closeMobileMenu} /><Link to="/contact" onClick={closeMobileMenu}>Get Started ↗</Link></div>
+        <div className="mobile-menu-links"><NavigationLinks onNavigate={closeMobileMenu} /><Link to="/contact" className="mobile-menu-cta" onClick={closeMobileMenu}>Get Started <span aria-hidden="true">↗</span></Link></div>
       </details>
     </nav>
   </header>

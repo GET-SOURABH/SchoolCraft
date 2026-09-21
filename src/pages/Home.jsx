@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageCTA from '../components/PageCTA';
 import ProjectShowcase from '../components/ProjectShowcase';
+import Reveal from '../components/Reveal';
 import { projects } from '../data/projects';
 import homeHeroLaptop from '../assets/images/home-hero-laptop.png';
 
@@ -12,21 +13,21 @@ function Home() {
       <section className="hero page-shell" aria-labelledby="hero-heading">
         <div className="hero-layout container">
           <div className="hero-copy">
-            <h1 id="hero-heading">
+            <h1 id="hero-heading" className="hero-enter hero-enter--headline">
               <span>Modern</span>
               <span>websites for</span>
               <span className="hero-heading-final">modern <em>schools.</em></span>
             </h1>
-            <p className="hero-description">We design professional, mobile-friendly websites for schools — making it easier for parents to discover your school, understand admissions and get in touch.</p>
-            <p className="identity-microcopy hero-identity">Aapka school. Aapki digital pehchaan.</p>
+            <p className="hero-description hero-enter hero-enter--description">We design professional, mobile-friendly websites for schools — making it easier for parents to discover your school, understand admissions and get in touch.</p>
+            <p className="identity-microcopy hero-identity hero-enter hero-enter--identity">Aapka school. Aapki digital pehchaan.</p>
             <div className="hero-actions">
-              <Link className="button button-primary" to="/work">View Our Work</Link>
-              <Link className="button button-secondary" to="/pricing">See Pricing</Link>
+              <Link className="button button-primary hero-enter hero-enter--primary-cta" to="/work">View Our Work</Link>
+              <Link className="button button-secondary hero-enter hero-enter--secondary-cta" to="/pricing">See Pricing</Link>
             </div>
-            <p className="hero-trust"><span aria-hidden="true" />Websites built for Indian schools.</p>
+            <p className="hero-trust hero-enter hero-enter--trust"><span aria-hidden="true" />Websites built for Indian schools.</p>
           </div>
           <div className="hero-visual">
-            <div className="hero-annotation" aria-hidden="true">
+            <div className="hero-annotation hero-enter hero-enter--annotation" aria-hidden="true">
               <span>Professional</span>
               <span>Affordable</span>
               <span>Impactful</span>
@@ -36,7 +37,7 @@ function Home() {
               </svg>
             </div>
             <img
-              className="hero-image"
+              className="hero-image hero-enter hero-enter--laptop"
               src={homeHeroLaptop}
               alt="Modern Indian school website displayed on a laptop"
             />
@@ -72,36 +73,40 @@ function Home() {
       <section id="work" className="featured-work page-shell" aria-labelledby="featured-work-heading">
         <div className="container">
           <div className="section-heading-row">
-            <div>
+            <Reveal>
               <p className="eyebrow">OUR WORK</p>
               <h2 id="featured-work-heading">See what we can build for schools.</h2>
               <p className="identity-microcopy featured-work-identity">Dekhiye hum schools ke liye kya build karte hain.</p>
-            </div>
-            <div className="section-heading-aside">
+            </Reveal>
+            <Reveal className="section-heading-aside" delay={90}>
               <p>{hasPlaceholders ? 'These are illustrative directions while real project screenshots are prepared.' : 'A selection of school websites designed and developed by SchoolCraft.'}</p>
               <Link to="/work" className="text-link">View All Work <span aria-hidden="true">→</span></Link>
-            </div>
+            </Reveal>
           </div>
           <p className="project-swipe-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
           <div className="project-grid project-grid--featured">
-            {projects.slice(0, 3).map(project => <ProjectShowcase key={project.number} {...project} />)}
+            {projects.slice(0, 3).map((project, index) => (
+              <Reveal key={project.number} className="project-card-reveal" delay={index * 80}>
+                <ProjectShowcase {...project} />
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="proof-strip page-shell" aria-label="Why SchoolCraft">
         <dl className="proof-items container">
-          <div><dt>100%</dt><dd>Custom Designed</dd></div>
-          <div><dt>Mobile Friendly</dt><dd>On All Devices</dd></div>
-          <div><dt>From ₹20,000</dt><dd>One-Time Development</dd></div>
+          <Reveal><dt>100%</dt><dd>Custom Designed</dd></Reveal>
+          <Reveal delay={70}><dt>Mobile Friendly</dt><dd>On All Devices</dd></Reveal>
+          <Reveal delay={140}><dt>From ₹20,000</dt><dd>One-Time Development</dd></Reveal>
         </dl>
       </section>
 
       <section className="education-quote page-shell" aria-label="Education and technology">
-        <figure className="container education-quote-inner">
+        <Reveal as="figure" className="container education-quote-inner" duration={620}>
           <blockquote>“Today we are empowered by technology to teach ourselves beyond classrooms and become life-long learners.”</blockquote>
           <figcaption>Dr. A. P. J. Abdul Kalam</figcaption>
-        </figure>
+        </Reveal>
       </section>
 
       <PageCTA

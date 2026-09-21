@@ -1,4 +1,5 @@
 import PageCTA from '../components/PageCTA';
+import Reveal from '../components/Reveal';
 
 const processSteps = [
   {
@@ -46,33 +47,33 @@ function HowItWorks() {
     <main id="main-content">
       <section className="page-hero page-shell" aria-labelledby="process-heading">
         <div className="container page-hero-inner">
-          <p className="eyebrow">HOW IT WORKS</p>
-          <h1 id="process-heading">From your school information<br />to a live website in <em>four steps.</em></h1>
-          <p>You share the information about your school. We handle the structure, design, development and technical setup.</p>
-          <p className="identity-microcopy page-hero-identity">Aap details share kijiye. Website hum sambhal lenge.</p>
+          <Reveal as="p" className="eyebrow">HOW IT WORKS</Reveal>
+          <Reveal as="h1" id="process-heading" delay={70}>From your school information<br />to a live website in <em>four steps.</em></Reveal>
+          <Reveal as="p" delay={140}>You share the information about your school. We handle the structure, design, development and technical setup.</Reveal>
+          <Reveal as="p" className="identity-microcopy page-hero-identity" delay={190}>Aap details share kijiye. Website hum sambhal lenge.</Reveal>
         </div>
       </section>
 
       <section className="process-section page-shell" aria-labelledby="steps-heading">
         <div className="container process-layout">
-          <div className="process-section-intro">
+          <Reveal className="process-section-intro">
             <p className="eyebrow">THE PROCESS</p>
             <h2 id="steps-heading">Simple, clear and easy to follow.</h2>
-          </div>
+          </Reveal>
           <ol className="process-list">
-            {processSteps.map(step => (
-              <li key={step.number}>
+            {processSteps.map((step, index) => (
+              <Reveal as="li" key={step.number} delay={index * 70}>
                 <span className="process-number" aria-hidden="true">{step.number}</span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>
       </section>
 
       <section className="process-support page-shell" aria-labelledby="support-heading">
-        <div className="container process-support-panel">
+        <Reveal className="container process-support-panel">
           <div className="process-support-heading">
             <p className="eyebrow">A SHARED EFFORT</p>
             <h2 id="support-heading">Your content.<br />Our web expertise.</h2>
@@ -87,14 +88,14 @@ function HowItWorks() {
               <ul>{schoolCraftHandles.map(item => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul>
             </section>
           </div>
-          <div className="process-notes">
+          <Reveal className="process-notes" delay={100} duration={600}>
             <p>Digital presence should make a school easier to discover, understand and connect with.</p>
             <blockquote>
               “Learning gives creativity, creativity leads to thinking, thinking provides knowledge, knowledge makes you great.”
               <cite>Dr. A. P. J. Abdul Kalam</cite>
             </blockquote>
-          </div>
-        </div>
+          </Reveal>
+        </Reveal>
       </section>
 
       <PageCTA
