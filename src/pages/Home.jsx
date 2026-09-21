@@ -12,19 +12,35 @@ function Home() {
       <section className="hero page-shell" aria-labelledby="hero-heading">
         <div className="hero-layout container">
           <div className="hero-copy">
-            <h1 id="hero-heading">Modern websites for modern <em>schools.</em></h1>
+            <h1 id="hero-heading">
+              <span>Modern</span>
+              <span>websites for</span>
+              <span className="hero-heading-final">modern <em>schools.</em></span>
+            </h1>
             <p className="hero-description">We design professional, mobile-friendly websites for schools — making it easier for parents to discover your school, understand admissions and get in touch.</p>
             <p className="identity-microcopy hero-identity">Aapka school. Aapki digital pehchaan.</p>
             <div className="hero-actions">
               <Link className="button button-primary" to="/work">View Our Work</Link>
               <Link className="button button-secondary" to="/pricing">See Pricing</Link>
             </div>
+            <p className="hero-trust"><span aria-hidden="true" />Websites built for Indian schools.</p>
           </div>
-          <img
-            className="hero-image"
-            src={homeHeroLaptop}
-            alt="Modern Indian school website displayed on a laptop"
-          />
+          <div className="hero-visual">
+            <div className="hero-annotation" aria-hidden="true">
+              <span>Professional</span>
+              <span>Affordable</span>
+              <span>Impactful</span>
+              <svg className="hero-annotation-arrow" viewBox="0 0 80 60">
+                <path d="M8 5c4 19 23 34 57 38" />
+                <path d="M55 35l11 8-11 7" />
+              </svg>
+            </div>
+            <img
+              className="hero-image"
+              src={homeHeroLaptop}
+              alt="Modern Indian school website displayed on a laptop"
+            />
+          </div>
         </div>
       </section>
 
