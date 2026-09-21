@@ -42,7 +42,8 @@ function PricingSection() {
           <div className="pricing-intro">
             <p className="eyebrow">PRICING</p>
             <h1 id="pricing-heading">Simple pricing.<br /><em>Choose what your school needs.</em></h1>
-            <p>Two clear, one-time development options for a professional school website.</p>
+            <p className="pricing-description">Two clear, one-time development options for a professional school website.</p>
+            <p className="identity-microcopy pricing-identity">Seedhi pricing. No confusion.</p>
           </div>
 
           <div className="pricing-cards">

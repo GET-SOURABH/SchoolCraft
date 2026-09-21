@@ -30,6 +30,7 @@ function Home() {
           <div className="hero-copy">
             <h1 id="hero-heading">Modern websites for modern <em>schools.</em></h1>
             <p className="hero-description">We design professional, mobile-friendly websites for schools — making it easier for parents to discover your school, understand admissions and get in touch.</p>
+            <p className="identity-microcopy hero-identity">Aapka school. Aapki digital pehchaan.</p>
             <div className="hero-actions">
               <Link className="button button-primary" to="/work">View Our Work</Link>
               <Link className="button button-secondary" to="/pricing">See Pricing</Link>
@@ -39,10 +40,28 @@ function Home() {
         </div>
       </section>
 
-      <section className="mission-strip page-shell" aria-labelledby="mission-heading">
-        <div className="container mission-strip-inner">
-          <h2 id="mission-heading" lang="hi">हर स्कूल डिजिटल बनेगा।</h2>
-          <p>Every school deserves a strong digital presence.</p>
+      <section className="mission-strip" aria-labelledby="mission-heading">
+        <h2 id="mission-heading" className="visually-hidden">हर स्कूल डिजिटल बनेगा। Every school deserves a strong digital presence.</h2>
+        <div className="mission-marquee" aria-hidden="true">
+          <div className="mission-marquee-track">
+            {[0, 1].map(group => (
+              <div className="mission-marquee-group" key={group}>
+                <strong lang="hi">हर स्कूल डिजिटल बनेगा।</strong>
+                <span className="mission-separator">✦</span>
+                <span>Every school deserves a strong digital presence.</span>
+                <span className="mission-separator">✦</span>
+                <strong lang="hi">हर स्कूल डिजिटल बनेगा।</strong>
+                <span className="mission-separator">✦</span>
+                <span>Every school deserves a strong digital presence.</span>
+                <span className="mission-separator">✦</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="mission-reduced-motion" aria-hidden="true">
+          <strong lang="hi">हर स्कूल डिजिटल बनेगा।</strong>
+          <span className="mission-separator">✦</span>
+          <span>Every school deserves a strong digital presence.</span>
         </div>
       </section>
 
@@ -52,12 +71,14 @@ function Home() {
             <div>
               <p className="eyebrow">OUR WORK</p>
               <h2 id="featured-work-heading">See what we can build for schools.</h2>
+              <p className="identity-microcopy featured-work-identity">Dekhiye hum schools ke liye kya build karte hain.</p>
             </div>
             <div className="section-heading-aside">
               <p>{hasPlaceholders ? 'These are illustrative directions while real project screenshots are prepared.' : 'A selection of school websites designed and developed by SchoolCraft.'}</p>
               <Link to="/work" className="text-link">View All Work <span aria-hidden="true">→</span></Link>
             </div>
           </div>
+          <p className="project-swipe-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
           <div className="project-grid project-grid--featured">
             {projects.slice(0, 3).map(project => <ProjectShowcase key={project.number} {...project} />)}
           </div>

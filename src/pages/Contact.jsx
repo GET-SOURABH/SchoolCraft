@@ -89,6 +89,7 @@ function Contact() {
           <p className="eyebrow">CONTACT</p>
           <h1 id="contact-heading">Let’s build your school’s<br /><em>online presence.</em></h1>
           <p>Have questions or ready to get started? Tell us about your school.</p>
+          <p className="identity-microcopy page-hero-identity">Bas school ke baare mein batayein — baaki process simple hai.</p>
         </div>
       </section>
 

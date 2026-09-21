@@ -49,6 +49,7 @@ function HowItWorks() {
           <p className="eyebrow">HOW IT WORKS</p>
           <h1 id="process-heading">From your school information<br />to a live website in <em>four steps.</em></h1>
           <p>You share the information about your school. We handle the structure, design, development and technical setup.</p>
+          <p className="identity-microcopy page-hero-identity">Aap details share kijiye. Website hum sambhal lenge.</p>
         </div>
       </section>
 
