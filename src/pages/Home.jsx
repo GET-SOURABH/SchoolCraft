@@ -1,24 +1,8 @@
 import { Link } from 'react-router-dom';
 import PageCTA from '../components/PageCTA';
-import ProjectShowcase, { WebsiteScreenshotPlaceholder } from '../components/ProjectShowcase';
+import ProjectShowcase from '../components/ProjectShowcase';
 import { projects } from '../data/projects';
-
-function HeroWebsitePreview() {
-  return (
-    <figure className="hero-preview">
-      <p className="hero-preview-note">Professional.<br />Affordable.<br />Impactful.</p>
-      <div className="hero-browser">
-        <div className="project-browser-bar" aria-hidden="true">
-          <span className="project-browser-dots"><i /><i /><i /></span>
-          <span>SCHOOL WEBSITE PREVIEW</span>
-          <span>↗</span>
-        </div>
-        <WebsiteScreenshotPlaceholder label="Add a real school-site screenshot here" />
-      </div>
-      <figcaption>Screenshot-ready placeholder</figcaption>
-    </figure>
-  );
-}
+import homeHeroLaptop from '../assets/images/home-hero-laptop.png';
 
 function Home() {
   const hasPlaceholders = projects.some(project => project.isPlaceholder);
@@ -36,7 +20,11 @@ function Home() {
               <Link className="button button-secondary" to="/pricing">See Pricing</Link>
             </div>
           </div>
-          <HeroWebsitePreview />
+          <img
+            className="hero-image"
+            src={homeHeroLaptop}
+            alt="Modern Indian school website displayed on a laptop"
+          />
         </div>
       </section>
 
