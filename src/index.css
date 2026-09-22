@@ -572,10 +572,34 @@ em { color: var(--green); font-family: var(--serif); font-weight: 400; }
   .mobile-menu-links a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid var(--border); font-size: 0.78rem; font-weight: 600; transition: opacity var(--interaction-fast); }
   .mobile-menu-links a:last-child { justify-content: center; margin-top: 12px; border: 0; border-radius: 5px; color: white; background: var(--green); transition: background-color var(--interaction-fast), opacity var(--interaction-fast), transform var(--interaction-fast); }
 
-  .hero { padding-block: 48px 52px; }
-  .hero-layout { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .hero { position: relative; isolation: isolate; padding-block: 48px 52px; }
+  .hero::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: clamp(88px, 22vw, 108px);
+    right: -26%;
+    width: 128%;
+    aspect-ratio: 3 / 2;
+    background: url("./assets/images/home-hero-laptop.png") center / contain no-repeat;
+    filter: blur(6px);
+    opacity: 0.18;
+    transform: scale(1.06);
+    transform-origin: right center;
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(252, 250, 244, 0.96) 0%, rgba(252, 250, 244, 0.72) 45%, rgba(252, 250, 244, 0) 82%);
+    pointer-events: none;
+  }
+  .hero-layout { position: relative; z-index: 2; grid-template-columns: minmax(0, 1fr); gap: 0; }
   .hero h1 { max-width: 650px; font-size: clamp(3.5rem, 12vw, 5.5rem); }
-  .hero-image { width: 100%; max-width: 100%; margin-left: 0; }
+  .hero-visual { display: none; }
   .hero-enter { --hero-y: 14px; --hero-duration: 540ms; }
   .hero-enter--headline { --hero-delay: 30ms; }
   .hero-enter--description { --hero-delay: 100ms; }
@@ -583,7 +607,73 @@ em { color: var(--green); font-family: var(--serif); font-weight: 400; }
   .hero-enter--primary-cta { --hero-delay: 195ms; }
   .hero-enter--secondary-cta { --hero-delay: 235ms; }
   .hero-enter--trust { --hero-delay: 285ms; }
-  .hero-enter--laptop { --hero-x: 14px; --hero-y: 0; --hero-delay: 85ms; --hero-duration: 620ms; }
+  .hero-enter--laptop { animation: none; }
+
+  :is(.work-hero, .pricing-hero-layout, .process-hero, .contact-hero) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  :is(.work-hero, .pricing-hero-layout, .process-hero, .contact-hero)::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: var(--mobile-hero-art-top);
+    right: var(--mobile-hero-art-right);
+    width: var(--mobile-hero-art-width);
+    aspect-ratio: var(--mobile-hero-art-aspect);
+    background: var(--mobile-hero-art-image) var(--mobile-hero-art-position, center) / contain no-repeat;
+    filter: blur(6px);
+    opacity: var(--mobile-hero-art-opacity);
+    transform: scale(1.06);
+    transform-origin: right center;
+    pointer-events: none;
+    user-select: none;
+  }
+  :is(.work-hero, .pricing-hero-layout, .process-hero, .contact-hero)::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(252, 250, 244, 0.96) 0%, rgba(252, 250, 244, 0.72) 45%, rgba(252, 250, 244, 0) 82%);
+    pointer-events: none;
+  }
+  .work-hero {
+    --mobile-hero-art-image: url("./assets/images/work-hero-showcase.png");
+    --mobile-hero-art-width: 130%;
+    --mobile-hero-art-aspect: 1213 / 780;
+    --mobile-hero-art-top: 20px;
+    --mobile-hero-art-right: -20%;
+    --mobile-hero-art-opacity: 0.17;
+  }
+  .pricing-hero-layout {
+    --mobile-hero-art-image: url("./assets/images/pricing-hero-decision-makers.png");
+    --mobile-hero-art-width: 125%;
+    --mobile-hero-art-aspect: 1480 / 947;
+    --mobile-hero-art-top: 8px;
+    --mobile-hero-art-right: -32%;
+    --mobile-hero-art-opacity: 0.13;
+  }
+  .process-hero {
+    --mobile-hero-art-image: url("./assets/images/how-it-works-hero-process.png");
+    --mobile-hero-art-width: 135%;
+    --mobile-hero-art-aspect: 1605 / 834;
+    --mobile-hero-art-top: 110px;
+    --mobile-hero-art-right: -18%;
+    --mobile-hero-art-opacity: 0.16;
+  }
+  .contact-hero {
+    --mobile-hero-art-image: url("./assets/images/contact-hero-school-admin.png");
+    --mobile-hero-art-width: 125%;
+    --mobile-hero-art-aspect: 1204 / 960;
+    --mobile-hero-art-top: 30px;
+    --mobile-hero-art-right: -45%;
+    --mobile-hero-art-opacity: 0.13;
+  }
+  :is(.work-hero-layout, .process-hero-layout, .contact-hero-layout, .pricing-intro) { position: relative; z-index: 2; }
+  .work-hero-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  :is(.reveal.work-hero-visual, .reveal.pricing-hero-visual, .reveal.process-hero-visual, .reveal.contact-hero-visual) { display: none; transition: none; }
+
   .reveal { --reveal-y: 14px; }
   .section-heading-row { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .section-heading-aside { max-width: 500px; }
