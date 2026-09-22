@@ -70,7 +70,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="work" className="featured-work page-shell" aria-labelledby="featured-work-heading">
+      <section id="work" className="featured-work page-shell anchor-target" aria-labelledby="featured-work-heading">
         <div className="container">
           <div className="section-heading-row">
             <Reveal>

@@ -1,3 +1,4 @@
+import howItWorksHeroProcess from '../assets/images/how-it-works-hero-process.png';
 import PageCTA from '../components/PageCTA';
 import Reveal from '../components/Reveal';
 
@@ -45,16 +46,23 @@ const schoolCraftHandles = [
 function HowItWorks() {
   return (
     <main id="main-content">
-      <section className="page-hero page-shell" aria-labelledby="process-heading">
-        <div className="container page-hero-inner">
+      <section className="page-hero page-shell process-hero" aria-labelledby="process-heading">
+        <div className="container page-hero-inner process-hero-layout">
           <Reveal as="p" className="eyebrow">HOW IT WORKS</Reveal>
-          <Reveal as="h1" id="process-heading" delay={70}>From your school information<br />to a live website in <em>four steps.</em></Reveal>
+          <Reveal as="h1" id="process-heading" delay={70}>From your school information to a live website in <em>four steps.</em></Reveal>
           <Reveal as="p" delay={140}>You share the information about your school. We handle the structure, design, development and technical setup.</Reveal>
           <Reveal as="p" className="identity-microcopy page-hero-identity" delay={190}>Aap details share kijiye. Website hum sambhal lenge.</Reveal>
+          <Reveal className="process-hero-visual" direction="right" delay={110} duration={760}>
+            <img
+              className="process-hero-image"
+              src={howItWorksHeroProcess}
+              alt="School information being transformed into a professional school website"
+            />
+          </Reveal>
         </div>
       </section>
 
-      <section className="process-section page-shell" aria-labelledby="steps-heading">
+      <section id="process" className="process-section page-shell anchor-target" aria-labelledby="steps-heading">
         <div className="container process-layout">
           <Reveal className="process-section-intro">
             <p className="eyebrow">THE PROCESS</p>

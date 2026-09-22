@@ -22,7 +22,7 @@ function Work() {
         </div>
       </section>
 
-      <section className="work-list page-shell" aria-label="School website projects">
+      <section id="projects" className="work-list page-shell anchor-target" aria-label="School website projects">
         <div className="container project-grid project-grid--work">
           {projects.map((project, index) => (
             <Reveal key={project.number} className="project-card-reveal" delay={index * 70}>

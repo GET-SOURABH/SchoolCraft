@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import contactHeroSchoolAdmin from '../assets/images/contact-hero-school-admin.png';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkjnpavb';
 
@@ -86,15 +87,22 @@ function Contact() {
   return (
     <main id="main-content">
       <section className="page-hero page-shell contact-hero" aria-labelledby="contact-heading">
-        <div className="container page-hero-inner">
+        <div className="container page-hero-inner contact-hero-layout">
           <Reveal as="p" className="eyebrow">CONTACT</Reveal>
           <Reveal as="h1" id="contact-heading" delay={70}>Let’s build your school’s<br /><em>online presence.</em></Reveal>
           <Reveal as="p" delay={140}>Have questions or ready to get started? Tell us about your school.</Reveal>
           <Reveal as="p" className="identity-microcopy page-hero-identity" delay={190}>Bas school ke baare mein batayein — baaki process simple hai.</Reveal>
+          <Reveal className="contact-hero-visual" direction="right" delay={110} duration={760}>
+            <img
+              className="contact-hero-image"
+              src={contactHeroSchoolAdmin}
+              alt="Indian school administrator preparing a website enquiry"
+            />
+          </Reveal>
         </div>
       </section>
 
-      <section className="contact-content page-shell" aria-label="SchoolCraft enquiry">
+      <section id="enquiry" className="contact-content page-shell anchor-target" aria-label="SchoolCraft enquiry">
         <div className="container contact-layout">
           <Reveal
             as="form"

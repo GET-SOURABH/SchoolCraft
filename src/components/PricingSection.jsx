@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import pricingHeroDecisionMakers from '../assets/images/pricing-hero-decision-makers.png';
 import PageCTA from './PageCTA';
 import Reveal from './Reveal';
 
@@ -38,16 +39,25 @@ function FeatureList({ features }) {
 function PricingSection() {
   return (
     <>
-      <section id="pricing" className="pricing-section page-shell" aria-labelledby="pricing-heading">
+      <section id="pricing" className="pricing-section page-shell anchor-target" aria-labelledby="pricing-heading">
         <div className="container">
-          <div className="pricing-intro">
-            <Reveal as="p" className="eyebrow">PRICING</Reveal>
-            <Reveal as="h1" id="pricing-heading" delay={70}>Simple pricing.<br /><em>Choose what your school needs.</em></Reveal>
-            <Reveal as="p" className="pricing-description" delay={140}>Two clear, one-time development options for a professional school website.</Reveal>
-            <Reveal as="p" className="identity-microcopy pricing-identity" delay={190}>Seedhi pricing. No confusion.</Reveal>
+          <div className="pricing-hero-layout">
+            <div className="pricing-intro">
+              <Reveal as="p" className="eyebrow">PRICING</Reveal>
+              <Reveal as="h1" id="pricing-heading" delay={70}>Simple pricing.<br /><em>Choose what your school needs.</em></Reveal>
+              <Reveal as="p" className="pricing-description" delay={140}>Two clear, one-time development options for a professional school website.</Reveal>
+              <Reveal as="p" className="identity-microcopy pricing-identity" delay={190}>Seedhi pricing. No confusion.</Reveal>
+            </div>
+            <Reveal className="pricing-hero-visual" direction="right" delay={110} duration={760}>
+              <img
+                className="pricing-hero-image"
+                src={pricingHeroDecisionMakers}
+                alt="Indian school administrators reviewing a school website together"
+              />
+            </Reveal>
           </div>
 
-          <div className="pricing-cards">
+          <div id="packages" className="pricing-cards anchor-target">
             <Reveal className="pricing-card-reveal">
               <article className="pricing-card pricing-card--essential" aria-labelledby="essential-package-heading">
                 <p className="pricing-label">ESSENTIAL</p>

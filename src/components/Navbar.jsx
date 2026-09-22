@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const links = [
   ['Home', '/'],
@@ -9,13 +9,28 @@ const links = [
 ];
 
 function NavigationLinks({ onNavigate }) {
+  const { pathname } = useLocation();
+
+  const handleNavigate = (event, destination) => {
+    if (pathname === destination) {
+      event.preventDefault();
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({
+        top: 0,
+        behavior: reducedMotion ? 'auto' : 'smooth',
+      });
+    }
+
+    onNavigate?.(event);
+  };
+
   return links.map(([label, to]) => (
     <NavLink
       key={to}
       to={to}
       end={to === '/'}
       className={({ isActive }) => isActive ? 'navbar-link-active' : undefined}
-      onClick={onNavigate}
+      onClick={(event) => handleNavigate(event, to)}
     >
       {label}
     </NavLink>
