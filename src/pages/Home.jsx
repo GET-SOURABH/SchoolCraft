@@ -40,7 +40,7 @@ const steps = [
 
 const stats = [
   ['100%', 'custom designed'],
-  ['All', 'screen sizes'],
+  ['3', 'desktop · tablet · mobile'],
   ['₹20K', 'starting price'],
   ['4', 'simple steps'],
 ];
@@ -61,16 +61,13 @@ function Home() {
             </p>
             <div className="hd-hero-actions hero-enter hero-enter--primary-cta">
               <Link className="hd-pill hd-pill--light" to="/work">Explore our work <span aria-hidden="true">↗</span></Link>
-              <Link className="hd-text-link" to="/contact">Start a project <span aria-hidden="true">→</span></Link>
             </div>
           </div>
 
           <div className="hd-hero-art hero-enter hero-enter--laptop">
-            <div className="hd-orbit hd-orbit--one" aria-hidden="true" />
-            <div className="hd-orbit hd-orbit--two" aria-hidden="true" />
-            <span className="hd-art-label hd-art-label--top">Professional</span>
-            <span className="hd-art-label hd-art-label--bottom">Purposeful</span>
-            <img src={homeHeroLaptop} alt="A premium school website presented on a laptop" />
+            <div className="hd-hero-float">
+              <img src={homeHeroLaptop} alt="A premium school website presented on a laptop" />
+            </div>
           </div>
         </div>
 

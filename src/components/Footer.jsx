@@ -15,7 +15,7 @@ function Footer() {
       <div className="footer-inner container">
         <Reveal className="footer-main">
           <div className="footer-message">
-            <Link to="/" className="footer-brand"><span aria-hidden="true">S</span>SchoolCraft</Link>
+            <Link to="/" className="footer-brand">SchoolCraft</Link>
             <h2>Better school websites.<br /><em>Made simple.</em></h2>
           </div>
           <div className="footer-actions">

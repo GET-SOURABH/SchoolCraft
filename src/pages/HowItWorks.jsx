@@ -45,12 +45,12 @@ const schoolCraftHandles = [
 
 function HowItWorks() {
   return (
-    <main id="main-content">
+    <main id="main-content" className="process-page">
       <section className="page-hero page-shell process-hero" aria-labelledby="process-heading">
         <div className="container page-hero-inner process-hero-layout">
           <Reveal as="p" className="eyebrow">HOW IT WORKS</Reveal>
-          <Reveal as="h1" id="process-heading" delay={70}>From your school information to a live website in <em>four steps.</em></Reveal>
-          <Reveal as="p" delay={140}>You share the information about your school. We handle the structure, design, development and technical setup.</Reveal>
+          <Reveal as="h1" id="process-heading" delay={70}>From school information to a <em>live website.</em></Reveal>
+          <Reveal as="p" delay={140}>Four simple steps. You share the school knowledge; we handle the structure, design, development and technical setup.</Reveal>
           <Reveal as="p" className="identity-microcopy page-hero-identity" delay={190}>Aap details share kijiye. Website hum sambhal lenge.</Reveal>
           <Reveal className="process-hero-visual" direction="right" delay={110} duration={760}>
             <img

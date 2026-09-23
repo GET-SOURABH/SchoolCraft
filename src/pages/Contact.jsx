@@ -85,7 +85,7 @@ function Contact() {
   const statusMessage = submissionMessages[submissionStatus] || '';
 
   return (
-    <main id="main-content">
+    <main id="main-content" className="contact-page">
       <section className="page-hero page-shell contact-hero" aria-labelledby="contact-heading">
         <div className="container page-hero-inner contact-hero-layout">
           <Reveal as="p" className="eyebrow">CONTACT</Reveal>
