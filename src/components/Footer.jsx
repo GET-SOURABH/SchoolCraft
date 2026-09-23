@@ -10,36 +10,29 @@ const footerLinks = [
 ];
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="site-footer page-shell">
       <div className="footer-inner container">
-        <div className="footer-main">
-          <Reveal className="footer-message">
-            <Link to="/" className="footer-brand" aria-label="SchoolCraft home">SchoolCraft<span aria-hidden="true">.</span></Link>
-            <p className="footer-descriptor">An independent school digitalisation initiative.</p>
+        <Reveal className="footer-main">
+          <div className="footer-message">
+            <Link to="/" className="footer-brand"><span aria-hidden="true">S</span>SchoolCraft</Link>
             <h2>Better school websites.<br /><em>Made simple.</em></h2>
-            <p className="footer-supporting-copy">Professional websites for schools with clear pricing and a straightforward process.</p>
-          </Reveal>
+          </div>
+          <div className="footer-actions">
+            <p>Ready to give your school a digital presence that feels as considered as the education you provide?</p>
+            <Link to="/contact" className="footer-primary-action">Start a project <span aria-hidden="true">↗</span></Link>
+          </div>
+        </Reveal>
 
-          <Reveal className="footer-actions" delay={70}>
-            <Link to="/contact" className="footer-primary-action">Start a Project <span aria-hidden="true">↗</span></Link>
-            <Link to="/pricing" className="footer-pricing-link">View Pricing</Link>
-          </Reveal>
-        </div>
-
-        <Reveal className="footer-navigation-row" delay={100}>
-          <p>Explore SchoolCraft</p>
+        <div className="footer-navigation-row">
+          <p>SchoolCraft · India</p>
           <nav aria-label="Footer navigation">
             {footerLinks.map(([label, to]) => <Link key={label} to={to}>{label}</Link>)}
           </nav>
-        </Reveal>
-
+        </div>
         <div className="footer-bottom">
-          <div className="footer-copyright">
-            <p>© {currentYear} SchoolCraft</p>
-          </div>
+          <p>© {new Date().getFullYear()} SchoolCraft. All rights reserved.</p>
+          <p>Strategy · Design · Development</p>
         </div>
       </div>
     </footer>

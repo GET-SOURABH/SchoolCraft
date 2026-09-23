@@ -2,10 +2,9 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const links = [
   ['Home', '/'],
-  ['Our Work', '/work'],
+  ['Work', '/work'],
   ['Pricing', '/pricing'],
-  ['How It Works', '/how-it-works'],
-  ['Contact', '/contact'],
+  ['Process', '/how-it-works'],
 ];
 
 function NavigationLinks({ onNavigate }) {
@@ -14,24 +13,13 @@ function NavigationLinks({ onNavigate }) {
   const handleNavigate = (event, destination) => {
     if (pathname === destination) {
       event.preventDefault();
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({
-        top: 0,
-        behavior: reducedMotion ? 'auto' : 'smooth',
-      });
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
-
     onNavigate?.(event);
   };
 
   return links.map(([label, to]) => (
-    <NavLink
-      key={to}
-      to={to}
-      end={to === '/'}
-      className={({ isActive }) => isActive ? 'navbar-link-active' : undefined}
-      onClick={(event) => handleNavigate(event, to)}
-    >
+    <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => isActive ? 'navbar-link-active' : undefined} onClick={(event) => handleNavigate(event, to)}>
       {label}
     </NavLink>
   ));
@@ -45,12 +33,18 @@ const Navbar = () => (
   <header className="site-header">
     <a className="skip-link" href="#main-content">Skip to content</a>
     <nav className="navbar container" aria-label="Main navigation">
-      <Link to="/" className="navbar-brand">SchoolCraft<span aria-hidden="true">.</span></Link>
+      <Link to="/" className="navbar-brand" aria-label="SchoolCraft home">
+        <span className="navbar-mark" aria-hidden="true">S</span>
+        <span className="navbar-wordmark">SchoolCraft</span>
+      </Link>
       <div className="navbar-links"><NavigationLinks /></div>
-      <Link to="/contact" className="navbar-cta">Get Started <span aria-hidden="true">↗</span></Link>
+      <Link to="/contact" className="navbar-cta">Let’s talk <span aria-hidden="true">↗</span></Link>
       <details className="mobile-menu">
         <summary aria-label="Open navigation menu"><span>Menu</span><span className="menu-lines" aria-hidden="true" /></summary>
-        <div className="mobile-menu-links"><NavigationLinks onNavigate={closeMobileMenu} /><Link to="/contact" className="mobile-menu-cta" onClick={closeMobileMenu}>Get Started <span aria-hidden="true">↗</span></Link></div>
+        <div className="mobile-menu-links">
+          <NavigationLinks onNavigate={closeMobileMenu} />
+          <Link to="/contact" className="mobile-menu-cta" onClick={closeMobileMenu}>Let’s talk <span aria-hidden="true">↗</span></Link>
+        </div>
       </details>
     </nav>
   </header>
