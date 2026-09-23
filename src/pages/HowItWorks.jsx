@@ -47,7 +47,7 @@ function HowItWorks() {
   return (
     <main id="main-content" className="process-page">
       <section className="page-hero page-shell process-hero" aria-labelledby="process-heading">
-        <div className="container page-hero-inner process-hero-layout">
+        <div className="container page-hero-inner inner-page-hero-frame process-hero-layout">
           <Reveal as="p" className="eyebrow">HOW IT WORKS</Reveal>
           <Reveal as="h1" id="process-heading" delay={70}>From school information to a <em>live website.</em></Reveal>
           <Reveal as="p" delay={140}>Four simple steps. You share the school knowledge; we handle the structure, design, development and technical setup.</Reveal>

@@ -87,7 +87,7 @@ function Contact() {
   return (
     <main id="main-content" className="contact-page">
       <section className="page-hero page-shell contact-hero" aria-labelledby="contact-heading">
-        <div className="container page-hero-inner contact-hero-layout">
+        <div className="container page-hero-inner inner-page-hero-frame contact-hero-layout">
           <Reveal as="p" className="eyebrow">CONTACT</Reveal>
           <Reveal as="h1" id="contact-heading" delay={70}>Let’s build your school’s<br /><em>online presence.</em></Reveal>
           <Reveal as="p" delay={140}>Have questions or ready to get started? Tell us about your school.</Reveal>

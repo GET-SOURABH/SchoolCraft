@@ -8,7 +8,7 @@ function Work() {
   return (
     <main id="main-content" className="work-page">
       <section className="page-hero page-shell work-hero" aria-labelledby="work-page-heading">
-        <div className="container page-hero-inner work-hero-layout">
+        <div className="container page-hero-inner inner-page-hero-frame work-hero-layout">
           <Reveal as="p" className="eyebrow">OUR WORK</Reveal>
           <Reveal as="h1" id="work-page-heading" delay={70}>Websites built for schools that <em>stand out.</em></Reveal>
           <Reveal as="p" delay={140}>Explore the website directions we create for schools. These concept placeholders will be replaced with real project screenshots and live links as work is completed.</Reveal>

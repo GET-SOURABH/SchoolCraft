@@ -41,7 +41,7 @@ function PricingSection() {
     <>
       <section id="pricing" className="pricing-section page-shell anchor-target" aria-labelledby="pricing-heading">
         <div className="container">
-          <div className="pricing-hero-layout">
+          <div className="inner-page-hero-frame pricing-hero-layout">
             <div className="pricing-intro">
               <Reveal as="p" className="eyebrow">PRICING</Reveal>
               <Reveal as="h1" id="pricing-heading" delay={70}>Simple pricing.<br /><em>Choose what your school needs.</em></Reveal>
