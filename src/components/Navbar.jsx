@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const links = [
@@ -120,9 +120,85 @@ function DesktopNavigation() {
   );
 }
 
-const closeMobileMenu = (event) => {
-  event.currentTarget.closest('details').open = false;
-};
+function MobileMenu() {
+  const { pathname } = useLocation();
+  const previousPathname = useRef(pathname);
+  const closeTimer = useRef(null);
+  const [menuPhase, setMenuPhase] = useState('closed');
+
+  const clearCloseTimer = useCallback(() => {
+    if (closeTimer.current === null) return;
+    window.clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    clearCloseTimer();
+
+    if (menuPhase === 'closed') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setMenuPhase('closed');
+      return;
+    }
+
+    setMenuPhase('closing');
+    closeTimer.current = window.setTimeout(() => {
+      setMenuPhase('closed');
+      closeTimer.current = null;
+    }, 160);
+  }, [clearCloseTimer, menuPhase]);
+
+  const toggleMenu = () => {
+    clearCloseTimer();
+
+    if (menuPhase === 'open') {
+      closeMenu();
+      return;
+    }
+
+    setMenuPhase('open');
+  };
+
+  const handleToggle = (event) => {
+    event.preventDefault();
+    toggleMenu();
+  };
+
+  const handleToggleKeyDown = (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggleMenu();
+  };
+
+  useEffect(() => {
+    if (previousPathname.current === pathname) return;
+    previousPathname.current = pathname;
+    closeMenu();
+  }, [closeMenu, pathname]);
+
+  useEffect(() => () => clearCloseTimer(), [clearCloseTimer]);
+
+  const isOpen = menuPhase !== 'closed';
+  const isClosing = menuPhase === 'closing';
+
+  return (
+    <details className={`mobile-menu${isClosing ? ' mobile-menu--closing' : ''}`} open={isOpen}>
+      <summary
+        aria-label={`${isOpen && !isClosing ? 'Close' : 'Open'} navigation menu`}
+        aria-expanded={isOpen && !isClosing}
+        aria-controls="mobile-navigation-panel"
+        onClick={handleToggle}
+        onKeyDown={handleToggleKeyDown}
+      >
+        <span>Menu</span><span className="menu-lines" aria-hidden="true" />
+      </summary>
+      <div id="mobile-navigation-panel" className="mobile-menu-links">
+        <NavigationLinks onNavigate={closeMenu} />
+        <Link to="/contact" className="mobile-menu-cta" onClick={closeMenu}>Start a project <span aria-hidden="true">↗</span></Link>
+      </div>
+    </details>
+  );
+}
 
 const Navbar = () => (
   <header className="site-header">
@@ -133,13 +209,7 @@ const Navbar = () => (
       </Link>
       <DesktopNavigation />
       <Link to="/contact" className="navbar-cta">Start a project <span aria-hidden="true">↗</span></Link>
-      <details className="mobile-menu">
-        <summary aria-label="Open navigation menu"><span>Menu</span><span className="menu-lines" aria-hidden="true" /></summary>
-        <div className="mobile-menu-links">
-          <NavigationLinks onNavigate={closeMobileMenu} />
-          <Link to="/contact" className="mobile-menu-cta" onClick={closeMobileMenu}>Start a project <span aria-hidden="true">↗</span></Link>
-        </div>
-      </details>
+      <MobileMenu />
     </nav>
   </header>
 );
