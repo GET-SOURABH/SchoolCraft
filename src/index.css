@@ -1238,6 +1238,20 @@ em { color: var(--green); font-family: var(--serif); font-weight: 400; }
 .hd-hero-value-text strong { font-size: 0.82rem; line-height: 1.25; }
 .hd-hero-value-text > span { color: rgba(255, 255, 255, 0.56); font-size: 0.66rem; line-height: 1.35; }
 
+@media (min-width: 561px) {
+  .hd-hero-values { border-top-color: transparent; }
+  .hd-hero-values::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}
+
 /* Moving statement */
 .hd-marquee { overflow: hidden; color: var(--hd-plum); background: var(--hd-orange); }
 .hd-marquee-track {
