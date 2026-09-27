@@ -1698,8 +1698,12 @@ em { color: var(--green); font-family: var(--serif); font-weight: 400; }
   .hd-hero { padding-inline: 18px; }
   .hd-hero-grid {
     position: relative;
+    width: calc(100% + 36px);
     min-height: 570px;
     display: block;
+    overflow: hidden;
+    margin-left: -18px;
+    padding-inline: 18px;
     padding-block: 42px 28px;
   }
   .hd-hero-grid::after {
@@ -1718,16 +1722,25 @@ em { color: var(--green); font-family: var(--serif); font-weight: 400; }
   .hd-hero-art {
     position: absolute;
     z-index: 2;
-    top: 46px;
-    right: -56vw;
+    top: 60px;
+    right: -73vw;
     bottom: auto;
-    width: 180vw;
+    width: 220vw;
     margin: 0;
     pointer-events: none;
   }
   .hd-hero-artwork-motion { animation: none; }
   .hero-enter--artwork { --hero-x: 18px; --hero-duration: 640ms; }
-  .hd-hero-values { position: relative; z-index: 4; }
+  .hd-hero-values { position: relative; z-index: 4; border-top-color: transparent; }
+  .hd-hero-values::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -18px;
+    left: -18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+  }
   .hd-hero-values li {
     min-height: 90px;
     display: flex;
