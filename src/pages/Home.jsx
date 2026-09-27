@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import homeHeroLaptop from '../assets/images/home-hero-laptop.png';
+import homeHeroArtwork from '../assets/images/home-hero-laptop.png';
 import processVisual from '../assets/images/how-it-works-hero-process.png';
 import schoolLeaders from '../assets/images/pricing-hero-decision-makers.png';
 
@@ -53,28 +53,48 @@ function Home() {
           <div className="hd-hero-copy">
             <p className="hd-kicker hero-enter hero-enter--headline"><span /> School websites, reimagined</p>
             <h1 id="home-heading" className="hero-enter hero-enter--description">
-              Digital presence<br />
-              <em>built for schools.</em>
+              <span>Digital</span>
+              <span>presence</span>
+              <em><span>built for</span><span>schools.</span></em>
             </h1>
             <p className="hd-hero-description hero-enter hero-enter--identity">
               We design clear, credible and distinctly modern websites that help Indian schools earn trust and grow.
             </p>
             <div className="hd-hero-actions hero-enter hero-enter--primary-cta">
-              <Link className="hd-pill hd-pill--light" to="/work">Explore our work <span aria-hidden="true">↗</span></Link>
+              <Link className="hd-pill hd-pill--light" to="/contact">Start a project <span aria-hidden="true">→</span></Link>
+              <Link className="hd-pill hd-pill--outline" to="/work">Explore our work <span aria-hidden="true">↗</span></Link>
             </div>
           </div>
 
-          <div className="hd-hero-art hero-enter hero-enter--laptop">
-            <div className="hd-hero-float">
-              <img src={homeHeroLaptop} alt="A premium school website presented on a laptop" />
+          <div className="hd-hero-art hero-enter hero-enter--artwork">
+            <div className="hd-hero-artwork-motion">
+              <img
+                src={homeHeroArtwork}
+                alt="Modern school website design featuring an Indian student"
+                width="1536"
+                height="1024"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
 
-        <div className="container hd-hero-foot">
-          <p>Aapka school. Aapki digital pehchaan.</p>
-          <p>Strategy · Design · Development · Launch</p>
-        </div>
+        <ol className="container hd-hero-values" aria-label="SchoolCraft benefits">
+          <li>
+            <span className="hd-hero-value-number">01</span>
+            <span className="hd-hero-value-text"><strong>Modern Design</strong><span>Clean, professional websites</span></span>
+          </li>
+          <li>
+            <span className="hd-hero-value-number">02</span>
+            <span className="hd-hero-value-text"><strong>Built for Indian Schools</strong><span>Simple, relevant and effective</span></span>
+          </li>
+          <li>
+            <span className="hd-hero-value-number">03</span>
+            <span className="hd-hero-value-text"><strong>Real Impact</strong><span>Build trust, get more enquiries</span></span>
+          </li>
+        </ol>
       </section>
 
       <section className="hd-marquee" aria-label="SchoolCraft promise">
